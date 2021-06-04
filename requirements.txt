@@ -1,0 +1,16 @@
+bitarray
+gym[box2d]
+matplotlib
+# mujoco_py
+numpy
+pandas
+scipy
+seaborn
+sklearn
+torch
+tqdm
+cpprb
+dm_control
+-e .
+git+git://github.com/zuoxingdong/dm2gym.git
+git+git://github.com/samlobel/onager.git

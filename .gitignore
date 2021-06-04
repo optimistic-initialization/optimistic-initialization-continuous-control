@@ -1,0 +1,10 @@
+*DS_Store*
+*pycache*
+*.txt
+*.out
+cenv
+.vscode
+TODO.md
+remote_plots
+venv/
+rbfdqn.egg-info

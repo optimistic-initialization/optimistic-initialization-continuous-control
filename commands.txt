@@ -1,0 +1,51 @@
+# Commands to run experiments with proper hyperparameters. The prelaunch commands set up each job,
+# and the launch command at the bottom can be run separately to run any job locally.
+
+### PointMaze
+onager prelaunch +jobname point_maze_DOIE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/point_maze --run_title DOIE --hyper_parameter_name 00 --use_knownness --use_torch_knownness --clip_q_targets --counting_epsilon 0.1 --approx_filter_radius 0.001" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname point_maze_RND +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/point_maze --run_title RND --hyper_parameter_name 00 --use_rnd --rnd_scaling 0.01" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname point_maze_MPE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/point_maze --run_title MPE --hyper_parameter_name 00 --use_mpe_bonus --mpe_scaling 0.01" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname point_maze_OptBias +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/point_maze --run_title OptBias --hyper_parameter_name 00 --use_naive_optimism" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname point_maze_RBFDQN +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/point_maze --run_title RBFDQN --hyper_parameter_name 00" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname point_maze_random +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/point_maze --run_title random_agent --hyper_parameter_name 00 --random_agent" +arg --seed 0 1 2 3 4
+
+### Pendulum
+onager prelaunch +jobname pendulum_DOIE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/pendulum --run_title DOIE --hyper_parameter_name 10 --use_knownness --use_torch_knownness --clip_q_targets --counting_epsilon 2.0 --approx_filter_radius 0.1 --action_scaling 4.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname pendulum_RND +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/pendulum --run_title RND --hyper_parameter_name 10 --use_rnd --rnd_scaling 1.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname pendulum_MPE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/pendulum --run_title MPE --hyper_parameter_name 10 --use_mpe_bonus --mpe_scaling 3000." +arg --seed 0 1 2 3 4
+onager prelaunch +jobname pendulum_OptBias +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/pendulum --run_title OptBias --hyper_parameter_name 10 --use_naive_optimism" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname pendulum_RBFDQN +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/pendulum --run_title RBFDQN --hyper_parameter_name 10" +arg --seed 0 1 2 3 4
+
+### Acrobot
+onager prelaunch +jobname acrobot_DOIE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/acrobot --run_title DOIE --hyper_parameter_name 20 --use_knownness --use_torch_knownness --clip_q_targets --counting_epsilon 0.3 --approx_filter_radius 0.25 --action_scaling 2.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname acrobot_RND +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/acrobot --run_title RND --hyper_parameter_name 20 --use_rnd --rnd_scaling 0.03" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname acrobot_MPE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/acrobot --run_title MPE --hyper_parameter_name 20 --use_mpe_bonus --mpe_scaling 0.01" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname acrobot_OptBias +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/acrobot --run_title OptBias --hyper_parameter_name 20 --use_naive_optimism" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname acrobot_RBFDQN +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/acrobot --run_title RBFDQN --hyper_parameter_name 20" +arg --seed 0 1 2 3 4
+
+### Ball In Cup
+onager prelaunch +jobname cartpole_DOIE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/cartpole --run_title DOIE --hyper_parameter_name 30 --use_knownness --use_torch_knownness --clip_q_targets --counting_epsilon 3.0 --approx_filter_radius 0.25 --action_scaling 2.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname cartpole_RND +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/cartpole --run_title RND --hyper_parameter_name 30 --use_rnd --rnd_scaling 0.1" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname cartpole_MPE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/cartpole --run_title MPE --hyper_parameter_name 30 --use_mpe_bonus --mpe_scaling 10.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname cartpole_OptBias +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/cartpole --run_title OptBias --hyper_parameter_name 30 --use_naive_optimism" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname cartpole_RBFDQN +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/cartpole --run_title RBFDQN --hyper_parameter_name 30" +arg --seed 0 1 2 3 4
+
+### Ball In Cup
+onager prelaunch +jobname ball_in_cup_DOIE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/ball_in_cup --run_title DOIE --hyper_parameter_name 40 --use_knownness --use_torch_knownness --clip_q_targets --counting_epsilon 2.0 --approx_filter_radius 0.75 --action_scaling 2.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname ball_in_cup_RND +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/ball_in_cup --run_title RND --hyper_parameter_name 40 --use_rnd --rnd_scaling 0.1" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname ball_in_cup_MPE +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/ball_in_cup --run_title MPE --hyper_parameter_name 40 --use_mpe_bonus --mpe_scaling 10.0" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname ball_in_cup_OptBias +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/ball_in_cup --run_title OptBias --hyper_parameter_name 40 --use_naive_optimism" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname ball_in_cup_RBFDQN +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/ball_in_cup --run_title RBFDQN --hyper_parameter_name 40" +arg --seed 0 1 2 3 4
+
+### MountainCar
+onager prelaunch +jobname mcar_uniform_optimism +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/mcar --run_title uniform_optimism --hyper_parameter_name 50 --use_knownness --use_torch_knownness --clip_q_targets" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname mcar_value_shaping +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/mcar --run_title q_shaping --hyper_parameter_name 50 --use_knownness --use_torch_knownness --clip_q_targets --shaping_func_name max_steps_away" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname mcar_anti_value_shaping +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/mcar --run_title anti_q_shaping --hyper_parameter_name 50 --use_knownness --use_torch_knownness --clip_q_targets --shaping_func_name reversed_max_steps_away" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname mcar_OptBias +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/mcar --run_title OptBias --hyper_parameter_name 50 --use_rnd --use_naive_optimism" +arg --seed 0 1 2 3 4
+onager prelaunch +jobname mcar_reward_shaping +command "python -u experiments/train.py --device cuda --experiment_name ./local_plots/mcar --run_title reward_shaping --hyper_parameter_name 50 --use_rnd --mcar_reward_shaping_scale 10.0" +arg --seed 0 1 2 3 4
+
+
+# Launch any command by uncommenting and editing the jobname in the following line:
+
+JOBNAME=point_maze_DOIE
+onager launch --backend local --jobname $JOBNAME --max 2
